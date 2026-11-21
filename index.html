@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>بازی‌های من</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Tahoma, sans-serif; background: #0f1220; color: #eee; min-height: 100vh; }
+    header { padding: 20px; text-align: center; background: #171a2e; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+    main { padding: 16px; display: grid; gap: 12px; }
+    .card { display: flex; gap: 12px; background: #171a2e; border-radius: 12px; padding: 12px; text-decoration: none; color: inherit; border: 1px solid #242a45; transition: transform 0.2s; }
+    .card:hover { transform: translateY(-2px); }
+    .card img { width: 70px; height: 70px; border-radius: 10px; object-fit: cover; background: #242a45; }
+    .card h3 { font-size: 15px; margin-bottom: 4px; }
+    .card p { font-size: 12px; color: #9aa3c7; margin-bottom: 8px; }
+    .btn { font-size: 12px; background: #3b82f6; padding: 4px 10px; border-radius: 6px; color: #fff; display: inline-block; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎮 بازی‌های من</h1>
+  </header>
+  <main id="list"></main>
+
+  <script>
+    const games = [
+      {
+        name: "بازی تستی اول",
+        icon: "https://via.placeholder.com/150",
+        link: "https://google.com",
+        desc: "توضیح کوتاه برای بازی اول"
+      }
+    ];
+
+    document.getElementById('list').innerHTML = games.map(g => `
+      <a class="card" href="${g.link}" target="_blank">
+        <img src="${g.icon}" alt="${g.name}">
+        <div>
+          <h3>${g.name}</h3>
+          <p>${g.desc}</p>
+          <span class="btn">⬇️ دانلود</span>
+        </div>
+      </a>
+    `).join('');
+  </script>
+</body>
+</html>
